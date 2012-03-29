@@ -220,13 +220,13 @@ class ResponseMixin(object):
 
     Should be a tuple/list of classes as described in the :mod:`renderers` module.
     """
-    
-    def get_content_type(self, content, mimetype): 
-        if isinstance(content, unicode): 
-            return "%s; %s" % (mimetype, settings.DEFAULT_CHARSET) 
-        else: 
+
+    def get_content_type(self, content, mimetype):
+        if isinstance(content, unicode):
+            return "%s; charset=%s" % (mimetype, settings.DEFAULT_CHARSET)
+        else:
             return mimetype
-            
+
     def get_renderers(self):
         """
         Return an iterable of available renderers. Override if you want to change

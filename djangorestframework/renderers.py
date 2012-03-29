@@ -201,13 +201,13 @@ class DocumentingTemplateRenderer(BaseRenderer):
     """
 
     template = None
-    
+
     def _escape_binary(self, content):
         if isinstance(content, unicode):
             return content
         else:
             return '[%d bytes of binary content]' % len(content)
-        
+
     def _get_content(self, view, request, obj, media_type):
         """
         Get the content as if it had been rendered by a non-documenting renderer.
@@ -223,8 +223,6 @@ class DocumentingTemplateRenderer(BaseRenderer):
 
         media_type = add_media_type_param(media_type, 'indent', '4')
         content = renderers[0](view).render(obj, media_type)
-        if not all(char in string.printable for char in content):
-            return '[%d bytes of binary content]'
 
         return self._escape_binary(content)
 

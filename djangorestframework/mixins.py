@@ -261,7 +261,7 @@ class ResponseMixin(object):
 
         # Build the HTTP Response
         content_type = self.get_content_type(content, response.media_type) 
-        resp = HttpResponse(content, mimetype=response.media_type, status=response.status, content_type=content_type)
+        resp = HttpResponse(content, status=response.status, content_type=content_type)
         for (key, val) in response.headers.items():
             resp[key] = val
 

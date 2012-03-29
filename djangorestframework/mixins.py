@@ -3,6 +3,7 @@ The :mod:`mixins` module provides a set of reusable `mixin`
 classes that can be added to a `View`.
 """
 
+from django.conf import settings
 from django.contrib.auth.models import AnonymousUser
 from django.core.paginator import Paginator
 from django.db.models.fields.related import ForeignKey
@@ -219,7 +220,13 @@ class ResponseMixin(object):
 
     Should be a tuple/list of classes as described in the :mod:`renderers` module.
     """
-
+    
+    def get_content_type(self, content, mimetype): 
+        if isinstance(content, unicode): 
+            return "%s; %s" % (mimetype, settings.DEFAULT_CHARSET) 
+        else: 
+            return mimetype
+            
     def get_renderers(self):
         """
         Return an iterable of available renderers. Override if you want to change
@@ -253,7 +260,8 @@ class ResponseMixin(object):
             content = renderer.render()
 
         # Build the HTTP Response
-        resp = HttpResponse(content, mimetype=response.media_type, status=response.status)
+        content_type = self.get_content_type(content, response.media_type) 
+        resp = HttpResponse(content, mimetype=response.media_type, status=response.status, content_type=content_type)
         for (key, val) in response.headers.items():
             resp[key] = val
 

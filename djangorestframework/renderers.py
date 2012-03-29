@@ -110,7 +110,7 @@ class JSONRenderer(BaseRenderer):
         except (ValueError, TypeError):
             indent = None
 
-        return json.dumps(obj, cls=DateTimeAwareJSONEncoder, indent=indent, sort_keys=sort_keys)
+        return unicode(json.dumps(obj, ensure_ascii=False, cls=DateTimeAwareJSONEncoder, indent=indent, sort_keys=sort_keys))
 
 
 class JSONPRenderer(JSONRenderer):
@@ -132,7 +132,7 @@ class JSONPRenderer(JSONRenderer):
     def render(self, obj=None, media_type=None):
         callback = self._get_callback()
         json = self._get_renderer().render(obj, media_type)
-        return "%s(%s);" % (callback, json)
+        return u"%s(%s);" % (callback, json)
 
 
 class XMLRenderer(BaseRenderer):
@@ -167,7 +167,7 @@ class YAMLRenderer(BaseRenderer):
         if obj is None:
             return ''
 
-        return yaml.safe_dump(obj)
+        return yaml.safe_dump(obj, encoding=None)
 
 
 class TemplateRenderer(BaseRenderer):
@@ -201,7 +201,13 @@ class DocumentingTemplateRenderer(BaseRenderer):
     """
 
     template = None
-
+    
+    def _escape_binary(self, content):
+        if isinstance(content, unicode):
+            return content
+        else:
+            return '[%d bytes of binary content]' % len(content)
+        
     def _get_content(self, view, request, obj, media_type):
         """
         Get the content as if it had been rendered by a non-documenting renderer.
@@ -220,7 +226,7 @@ class DocumentingTemplateRenderer(BaseRenderer):
         if not all(char in string.printable for char in content):
             return '[%d bytes of binary content]'
 
-        return content
+        return self._escape_binary(content)
 
     def _get_form_instance(self, view, method):
         """

@@ -80,7 +80,7 @@ class BaseRenderer(object):
         Override this method to provide for other behavior.
         """
         if obj is None:
-            return ''
+            return u''
 
         return str(obj)
 
@@ -98,7 +98,7 @@ class JSONRenderer(BaseRenderer):
         Renders *obj* into serialized JSON.
         """
         if obj is None:
-            return ''
+            return u''
 
         # If the media type looks like 'application/json; indent=4', then
         # pretty print the result.
@@ -148,7 +148,7 @@ class XMLRenderer(BaseRenderer):
         Renders *obj* into serialized XML.
         """
         if obj is None:
-            return ''
+            return u''
         return dict2xml(obj)
 
 
@@ -165,7 +165,7 @@ class YAMLRenderer(BaseRenderer):
         Renders *obj* into serialized YAML.
         """
         if obj is None:
-            return ''
+            return u''
 
         return yaml.safe_dump(obj, encoding=None)
 
@@ -187,7 +187,7 @@ class TemplateRenderer(BaseRenderer):
         Renders *obj* using the :attr:`template` specified on the class.
         """
         if obj is None:
-            return ''
+            return u''
 
         template = loader.get_template(self.template)
         context = RequestContext(self.view.request, {'object': obj})

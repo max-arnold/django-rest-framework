@@ -8,13 +8,15 @@ The set of authentication methods which are used is then specified by setting th
 """
 
 from django.contrib.auth import authenticate
+from django.contrib.auth.models import AnonymousUser
 from djangorestframework.compat import CsrfViewMiddleware
 import base64
 
 __all__ = (
     'BaseAuthentication',
     'BasicAuthentication',
-    'UserLoggedInAuthentication'
+    'UserLoggedInAuthentication',
+    'AnonymousAuthentication',
 )
 
 
@@ -96,6 +98,16 @@ class UserLoggedInAuthentication(BaseAuthentication):
             if resp is None:  # csrf passed
                 return request.user
         return None
+
+
+class AnonymousAuthentication(BaseAuthentication):
+    """
+    Always returns Django's AnonymousUser.
+    """
+
+    def authenticate(self, request):
+        self.view.DATA  # Make sure our generic parsing runs first
+        return AnonymousUser()
 
 
 # TODO: TokenAuthentication, DigestAuthentication, OAuthAuthentication

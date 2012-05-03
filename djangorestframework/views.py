@@ -91,7 +91,8 @@ class View(ResourceMixin, RequestMixin, ResponseMixin, AuthMixin, DjangoView):
     """
 
     authentication = (authentication.UserLoggedInAuthentication,
-                       authentication.BasicAuthentication)
+                      authentication.BasicAuthentication,
+                      authentication.AnonymousAuthentication)
     """
     List of all authenticating methods to attempt.
     """

@@ -5,7 +5,7 @@ from django.conf.urls.defaults import patterns
 from django.contrib.auth.models import User
 from django.test import TestCase, Client
 from djangorestframework import status
-from djangorestframework.authentication import UserLoggedInAuthentication
+from djangorestframework.authentication import UserLoggedInAuthentication, AnonymousAuthentication
 from djangorestframework.compat import RequestFactory, unittest
 from djangorestframework.mixins import RequestMixin
 from djangorestframework.parsers import FormParser, MultiPartParser, \
@@ -14,7 +14,7 @@ from djangorestframework.response import Response
 from djangorestframework.views import View
 
 class MockView(View):
-    authentication = (UserLoggedInAuthentication,)
+    authentication = (UserLoggedInAuthentication, AnonymousAuthentication)
     def post(self, request):
         if request.POST.get('example') is not None:
             return Response(status.HTTP_200_OK)

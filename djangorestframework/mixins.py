@@ -3,7 +3,6 @@ The :mod:`mixins` module provides a set of reusable `mixin`
 classes that can be added to a `View`.
 """
 
-from django.contrib.auth.models import AnonymousUser
 from django.core.paginator import Paginator
 from django.db.models.fields.related import ForeignKey
 from django.http import HttpResponse
@@ -357,14 +356,14 @@ class AuthMixin(object):
     def _authenticate(self):
         """
         Attempt to authenticate the request using each authentication class in turn.
-        Returns a ``User`` object, which may be ``AnonymousUser``.
+        Returns a ``User`` object, which may be ``AnonymousUser`` or None.
         """
         for authentication_cls in self.authentication:
             authentication = authentication_cls(self)
             user = authentication.authenticate(self.request)
             if user:
                 return user
-        return AnonymousUser()
+        return None
 
     # TODO: wrap this behavior around dispatch()
     def _check_permissions(self):

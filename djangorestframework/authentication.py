@@ -106,7 +106,6 @@ class AnonymousAuthentication(BaseAuthentication):
     """
 
     def authenticate(self, request):
-        self.view.DATA  # Make sure our generic parsing runs first
         return AnonymousUser()
 
 

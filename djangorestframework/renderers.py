@@ -182,6 +182,10 @@ class TemplateRenderer(BaseRenderer):
     media_type = None
     template = None
 
+    def __init__(self, view):
+        super(TemplateRenderer, self).__init__(view)
+        self.template = getattr(self.view, "template", self.template)
+
     def render(self, obj=None, media_type=None):
         """
         Renders *obj* using the :attr:`template` specified on the class.
@@ -201,6 +205,10 @@ class DocumentingTemplateRenderer(BaseRenderer):
     """
 
     template = None
+
+    def __init__(self, view):
+        super(DocumentingTemplateRenderer, self).__init__(view)
+        self.template = getattr(self.view, "template", self.template)
 
     def _escape_binary(self, content):
         if isinstance(content, unicode):
@@ -366,7 +374,7 @@ class DocumentingTemplateRenderer(BaseRenderer):
 class DocumentingHTMLRenderer(DocumentingTemplateRenderer):
     """
     Renderer which provides a browsable HTML interface for an API.
-    See the examples at http://api.django-rest-framework.org to see this in action.
+    See the examples at http://shielded-mountain-6732.herokuapp.com to see this in action.
     """
 
     media_type = 'text/html'

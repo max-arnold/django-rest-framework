@@ -11,12 +11,12 @@ Introduction
 
 Django REST framework is a lightweight REST framework for Django, that aims to make it easy to build well-connected, self-describing RESTful Web APIs.
 
-**Browse example APIs created with Django REST framework:** `The Sandbox <http://rest.ep.io/>`_
+**Browse example APIs created with Django REST framework:** `The Sandbox <http://shielded-mountain-6732.herokuapp.com/>`_
 
 Features:
 ---------
 
-* Automatically provides an awesome Django admin style `browse-able self-documenting API <http://rest.ep.io>`_.
+* Automatically provides an awesome Django admin style `browse-able self-documenting API <http://shielded-mountain-6732.herokuapp.com>`_.
 * Clean, simple, views for Resources, using Django's new `class based views <http://docs.djangoproject.com/en/dev/topics/class-based-views/>`_.
 * Support for ModelResources with out-of-the-box default implementations and input validation.
 * Pluggable :mod:`.parsers`, :mod:`renderers`, :mod:`authentication` and :mod:`permissions` - Easy to customise.
@@ -32,15 +32,15 @@ Resources
 * The ``djangorestframework`` package is `available on PyPI <http://pypi.python.org/pypi/djangorestframework>`_.
 * We have an active `discussion group <http://groups.google.com/group/django-rest-framework>`_.
 * Bug reports are handled on the `issue tracker <https://github.com/tomchristie/django-rest-framework/issues>`_.
-* There is a `Jenkins CI server <http://jenkins.tibold.nl/job/djangorestframework/>`_ which tracks test status and coverage reporting.  (Thanks Marko!)
+* There's a comprehensive tutorial to using REST framework and Backbone JS on `10kblogger.wordpress.com <http://10kblogger.wordpress.com/2012/05/25/a-restful-password-locker-with-django-and-backbone-js/>`_.
 
 Any and all questions, thoughts, bug reports and contributions are *hugely appreciated*.
 
 Requirements
 ------------
 
-* Python (2.5, 2.6, 2.7 supported)
-* Django (1.2, 1.3, 1.4 supported)
+* Python (2.6+)
+* Django (1.3+)
 * `django.contrib.staticfiles`_ (or `django-staticfiles`_ for Django 1.2)
 * `URLObject`_ >= 2.0.0
 * `Markdown`_ >= 2.1.0 (Optional)
@@ -68,7 +68,7 @@ To add Django REST framework to a Django project:
 
     urlpatterns = patterns('',
         ...
-        url(r'^restframework', include('djangorestframework.urls', namespace='djangorestframework'))
+        url(r'^api-auth/', include('djangorestframework.urls', namespace='djangorestframework'))
     )
 
 For more information on settings take a look at the :ref:`setup` section.
@@ -103,7 +103,6 @@ The following example exposes your `MyModel` model through an api. It will provi
 .. include:: howto.rst
 
 .. include:: library.rst
-
 
 .. include:: examples.rst
 

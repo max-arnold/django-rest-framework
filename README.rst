@@ -5,6 +5,11 @@ Django REST framework
 
 **Author:** Tom Christie.  `Follow me on Twitter <https://twitter.com/_tomchristie>`_.
 
+:build status: |build-image|
+
+.. |build-image| image:: https://secure.travis-ci.org/tomchristie/django-rest-framework.png?branch=master
+                 :target: https://secure.travis-ci.org/tomchristie/django-rest-framework
+
 Overview
 ========
 
@@ -21,12 +26,10 @@ Full documentation for the project is available at http://django-rest-framework.
 Issue tracking is on `GitHub <https://github.com/tomchristie/django-rest-framework/issues>`_.
 General questions should be taken to the `discussion group <http://groups.google.com/group/django-rest-framework>`_.
 
-We also have a `Jenkins service <http://jenkins.tibold.nl/job/djangorestframework1/>`_ which runs our test suite. 
-
 Requirements:
 
-* Python (2.5, 2.6, 2.7 supported)
-* Django (1.2, 1.3, 1.4 supported)
+* Python 2.6+
+* Django 1.3+
 
 
 Installation Notes

@@ -9,11 +9,6 @@ import inspect
 import types
 
 
-# We register serializer classes, so that we can refer to them by their
-# class names, if there are cyclical serialization heirachys.
-_serializers = {}
-
-
 def _field_to_tuple(field):
     """
     Convert an item in the `fields` attribute into a 2-tuple.
@@ -39,17 +34,6 @@ class _SkipField(Exception):
     pass
 
 
-class _RegisterSerializer(type):
-    """
-    Metaclass to register serializers.
-    """
-    def __new__(cls, name, bases, attrs):
-        # Build the class and register it.
-        ret = super(_RegisterSerializer, cls).__new__(cls, name, bases, attrs)
-        _serializers[name] = ret
-        return ret
-
-
 class Serializer(object):
     """
     Converts python objects into plain old native types suitable for
@@ -64,8 +48,6 @@ class Serializer(object):
     Valid output types include anything that may be directly rendered into
     json, xml etc...
     """
-    __metaclass__ = _RegisterSerializer
-
     fields = ()
     """
     Specify the fields to be serialized on a model or dict.
@@ -96,7 +78,7 @@ class Serializer(object):
     """
     The maximum depth to serialize to, or `None`.
     """
-    
+
     parent = None
     """
     A reference to the root serializer when descending down into fields.
@@ -148,15 +130,6 @@ class Serializer(object):
         # class to use for that field.
         elif isinstance(info, type) and issubclass(info, Serializer):
             return info
-
-        # If an element in `fields` is a 2-tuple of (str, str)
-        # then the second element of the tuple is the name of the Serializer
-        # class to use for that field.
-        #
-        # Black magic to deal with cyclical Serializer dependancies.
-        # Similar to what Django does for cyclically related models.
-        elif isinstance(info, str) and info in _serializers:
-            return _serializers[info]
 
         # Otherwise use `related_serializer` or fall back to
         # `OnTheFlySerializer` preserve custom serialization methods.

@@ -25,6 +25,13 @@ def _fields_to_list(fields):
     return [_field_to_tuple(field) for field in fields or ()]
 
 
+def _uniquify_fields(default, include, exclude):
+    default_set = set(default)
+    include_set = set([f[0] if isinstance(f, (tuple, list)) else f for f in include])
+    exclude_set = set(exclude)
+    return default_set.difference(include_set).union(set(list(include))) - exclude_set
+
+
 class _SkipField(Exception):
     """
     Signals that a serialized field should be ignored.
@@ -98,7 +105,7 @@ class Serializer(object):
             default = self.get_default_fields(obj)
             include = self.include or ()
             exclude = self.exclude or ()
-            fields = set(default + list(include)) - set(exclude)
+            fields = _uniquify_fields(default, include, exclude)
 
         return fields
 

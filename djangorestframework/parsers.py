@@ -14,7 +14,6 @@ We need a method to be able to:
 from django.http import QueryDict
 from django.http.multipartparser import MultiPartParser as DjangoMultiPartParser
 from django.http.multipartparser import MultiPartParserError
-from django.utils import simplejson as json
 from djangorestframework import status
 from djangorestframework.compat import yaml
 from djangorestframework.response import ErrorResponse
@@ -25,6 +24,15 @@ from xml.parsers.expat import ExpatError
 import datetime
 import decimal
 
+import django
+if django.VERSION >= (1, 5):
+    # In 1.5 and later, DateTimeAwareJSONEncoder inherits from json.JSONEncoder,
+    # while in 1.4 and earlier it inherits from simplejson.JSONEncoder.  The two
+    # are not compatible due to keyword argument namedtuple_as_object, and we
+    # have to ensure that the 'dumps' function we use is the right one.
+    import json
+else:
+    from django.utils import simplejson as json
 
 __all__ = (
     'BaseParser',

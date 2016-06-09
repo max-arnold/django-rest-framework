@@ -1,5 +1,5 @@
 from django.core.urlresolvers import reverse
-from django.conf.urls.defaults import patterns, url, include
+from django.conf.urls import patterns, url, include
 from django.http import HttpResponse
 from django.test import TestCase
 from django.test import Client

@@ -1,6 +1,6 @@
 import re
 
-from django.conf.urls.defaults import patterns, url, include
+from django.conf.urls import patterns, url, include
 from django.test import TestCase
 
 from djangorestframework import status

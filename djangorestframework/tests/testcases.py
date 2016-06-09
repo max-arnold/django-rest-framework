@@ -1,7 +1,7 @@
 # http://djangosnippets.org/snippets/1011/
 from django.conf import settings
 from django.core.management import call_command
-from django.db.models import loading
+# from django.db.models import loading
 from django.test import TestCase
 
 NO_SETTING = ('!', None)
@@ -27,7 +27,7 @@ class TestSettingsManager(object):
             self.syncdb()
 
     def syncdb(self):
-        loading.cache.loaded = False
+        # loading.cache.loaded = False
         call_command('syncdb', verbosity=0)
 
     def revert(self):

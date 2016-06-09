@@ -2,7 +2,7 @@
 """
 
 from django.test import TestCase
-from django.utils import simplejson as json
+import json
 
 from djangorestframework.compat import RequestFactory
 from djangorestframework.reverse import reverse

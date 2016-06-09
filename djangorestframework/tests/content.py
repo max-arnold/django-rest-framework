@@ -117,7 +117,7 @@ class TestContentParsing(TestCase):
     @unittest.skip('This test was disabled some time ago for some reason')
     def test_accessing_post_after_data_for_json(self):
         """Ensures request.POST can be accessed after request.DATA in json request"""
-        from django.utils import simplejson as json
+        import json
 
         data = {'qwerty': 'uiop'}
         content = json.dumps(data)
@@ -133,15 +133,7 @@ class TestContentParsing(TestCase):
 
     def test_accessing_post_after_data_for_overloaded_json(self):
         """Ensures request.POST can be accessed after request.DATA in overloaded json request"""
-        import django
-        if django.VERSION >= (1, 5):
-            # In 1.5 and later, DateTimeAwareJSONEncoder inherits from json.JSONEncoder,
-            # while in 1.4 and earlier it inherits from simplejson.JSONEncoder.  The two
-            # are not compatible due to keyword argument namedtuple_as_object, and we
-            # have to ensure that the 'dumps' function we use is the right one.
-            import json
-        else:
-            from django.utils import simplejson as json
+        import json
 
         data = {'qwerty': 'uiop'}
         content = json.dumps(data)
@@ -170,15 +162,7 @@ class TestContentParsing(TestCase):
 
     def test_accessing_data_after_post_for_json(self):
         """Ensures request.DATA can be accessed after request.POST in json request"""
-        import django
-        if django.VERSION >= (1, 5):
-            # In 1.5 and later, DateTimeAwareJSONEncoder inherits from json.JSONEncoder,
-            # while in 1.4 and earlier it inherits from simplejson.JSONEncoder.  The two
-            # are not compatible due to keyword argument namedtuple_as_object, and we
-            # have to ensure that the 'dumps' function we use is the right one.
-            import json
-        else:
-            from django.utils import simplejson as json
+        import json
 
         data = {'qwerty': 'uiop'}
         content = json.dumps(data)
@@ -198,15 +182,7 @@ class TestContentParsing(TestCase):
 
     def test_accessing_data_after_post_for_overloaded_json(self):
         """Ensures request.DATA can be accessed after request.POST in overloaded json request"""
-        import django
-        if django.VERSION >= (1, 5):
-            # In 1.5 and later, DateTimeAwareJSONEncoder inherits from json.JSONEncoder,
-            # while in 1.4 and earlier it inherits from simplejson.JSONEncoder.  The two
-            # are not compatible due to keyword argument namedtuple_as_object, and we
-            # have to ensure that the 'dumps' function we use is the right one.
-            import json
-        else:
-            from django.utils import simplejson as json
+        import json
 
         data = {'qwerty': 'uiop'}
         content = json.dumps(data)

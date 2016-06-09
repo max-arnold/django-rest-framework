@@ -2,7 +2,7 @@
 Tests for content parsing, and form-overloaded content parsing.
 """
 from django.conf.urls import patterns
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.test import TestCase, Client
 from djangorestframework import status
 from djangorestframework.authentication import UserLoggedInAuthentication
@@ -207,7 +207,7 @@ class TestContentParsingWithAuthentication(TestCase):
         self.username = 'john'
         self.email = 'lennon@thebeatles.com'
         self.password = 'password'
-        self.user = User.objects.create_user(self.username, self.email, self.password)
+        self.user = get_user_model().objects.create_user(self.username, self.email, self.password)
         self.req = RequestFactory()
 
     def test_user_logged_in_authentication_has_post_when_not_logged_in(self):

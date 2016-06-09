@@ -19,8 +19,8 @@ class CustomUser(models.Model):
 
 class UserGroupMap(models.Model):
     user = models.ForeignKey(to=CustomUser)
-    group = models.ForeignKey(to=Group)      
-    
+    group = models.ForeignKey(to=Group)
+
     @models.permalink
     def get_absolute_url(self):
         return ('user_group_map', (), {

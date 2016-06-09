@@ -3,7 +3,7 @@ Tests for the throttling implementations in the permissions module.
 """
 
 from django.test import TestCase
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.core.cache import cache
 
 from djangorestframework.compat import RequestFactory
@@ -74,10 +74,10 @@ class ThrottlingTests(TestCase):
 
     def ensure_is_throttled(self, view, expect):
         request = self.factory.get('/')
-        request.user = User.objects.create(username='a')
+        request.user = get_user_model().objects.create(username='a')
         for dummy in range(3):
             view.as_view()(request)
-        request.user = User.objects.create(username='b')
+        request.user = get_user_model().objects.create(username='b')
         response = view.as_view()(request)
         self.assertEqual(expect, response.status_code)
 

@@ -2,7 +2,8 @@
 from django.test import TestCase
 from djangorestframework import status
 from djangorestframework.compat import RequestFactory
-from django.contrib.auth.models import Group, User
+from django.contrib.auth.models import Group
+from django.contrib.auth import get_user_model
 from djangorestframework.mixins import CreateModelMixin, PaginatorMixin, ReadModelMixin
 from djangorestframework.resources import ModelResource
 from djangorestframework.response import Response, ErrorResponse
@@ -68,7 +69,7 @@ class TestModelCreation(TestModelsTestCase):
 
     def test_creation_with_m2m_relation(self):
         class UserResource(ModelResource):
-            model = User
+            model = get_user_model()
 
             def url(self, instance):
                 return "/users/%i" % instance.id
@@ -89,7 +90,7 @@ class TestModelCreation(TestModelsTestCase):
         mixin.CONTENT = cleaned_data
 
         response = mixin.post(request)
-        self.assertEquals(1, User.objects.count())
+        self.assertEquals(1, get_user_model.objects.count())
         self.assertEquals(1, response.cleaned_content.groups.count())
         self.assertEquals('foo', response.cleaned_content.groups.all()[0].name)
 

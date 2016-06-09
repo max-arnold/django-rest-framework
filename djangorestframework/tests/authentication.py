@@ -1,5 +1,5 @@
 from django.conf.urls import patterns
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.test import Client, TestCase
 import json
 
@@ -32,7 +32,7 @@ class BasicAuthTests(TestCase):
         self.username = 'john'
         self.email = 'lennon@thebeatles.com'
         self.password = 'password'
-        self.user = User.objects.create_user(self.username, self.email, self.password)
+        self.user = get_user_model().objects.create_user(self.username, self.email, self.password)
 
     def test_post_form_passing_basic_auth(self):
         """Ensure POSTing json over basic auth with correct credentials passes and does not require CSRF"""
@@ -67,7 +67,7 @@ class SessionAuthTests(TestCase):
         self.username = 'john'
         self.email = 'lennon@thebeatles.com'
         self.password = 'password'
-        self.user = User.objects.create_user(self.username, self.email, self.password)
+        self.user = get_user_model().objects.create_user(self.username, self.email, self.password)
 
     def tearDown(self):
         self.csrf_client.logout()

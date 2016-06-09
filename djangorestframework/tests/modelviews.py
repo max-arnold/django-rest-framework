@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, url
 from django.forms import ModelForm
-from django.contrib.auth.models import Group, User
+from django.contrib.auth.models import Group
+from django.contrib.auth import get_user_model
 from djangorestframework.resources import ModelResource
 from djangorestframework.views import ListOrCreateModelView, InstanceModelView
 from djangorestframework.tests.models import CustomUser
@@ -13,12 +14,12 @@ class GroupResource(ModelResource):
 
 class UserForm(ModelForm):
     class Meta:
-        model = User
+        model = get_user_model()
         exclude = ('last_login', 'date_joined')
 
 
 class UserResource(ModelResource):
-    model = User
+    model = get_user_model()
     form = UserForm
 
 
@@ -53,14 +54,14 @@ class ModelViewTests(TestModelsTestCase):
         """Ensure that a model object with a m2m relation can be created"""
         group = Group(name='foo')
         group.save()
-        self.assertEqual(0, User.objects.count())
+        self.assertEqual(0, get_user_model().objects.count())
 
         response = self.client.post('/users/', {'username': 'bar', 'password': 'baz', 'groups': [group.id]})
 
         self.assertEqual(response.status_code, 201)
-        self.assertEqual(1, User.objects.count())
+        self.assertEqual(1, get_user_model().objects.count())
 
-        user = User.objects.all()[0]
+        user = get_user_model().objects.all()[0]
         self.assertEqual('bar', user.username)
         self.assertEqual('baz', user.password)
         self.assertEqual(1, user.groups.count())
@@ -75,7 +76,7 @@ class ModelViewTests(TestModelsTestCase):
         """
         group = Group(name='foo')
         group.save()
-        self.assertEqual(0, User.objects.count())
+        self.assertEqual(0, get_user_model().objects.count())
 
         response = self.client.post('/customusers/', {'username': 'bar', 'groups': [group.id]})
 

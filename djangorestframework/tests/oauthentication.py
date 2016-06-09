@@ -1,7 +1,7 @@
 import time
 
 from django.conf.urls import patterns, url, include
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.test import Client, TestCase
 
 from djangorestframework.views import View
@@ -48,7 +48,7 @@ else:
             self.username = 'john'
             self.email = 'lennon@thebeatles.com'
             self.password = 'password'
-            self.user = User.objects.create_user(self.username, self.email, self.password)
+            self.user = get_user_model().objects.create_user(self.username, self.email, self.password)
 
             # OAuth requirements
             self.resource = Resource(name='data', url='/')

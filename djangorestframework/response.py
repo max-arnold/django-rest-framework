@@ -5,7 +5,7 @@ into a HTTP response depending on what renderers are set on your view and
 als depending on the accept header of the request.
 """
 
-from django.core.handlers.wsgi import STATUS_CODE_TEXT
+from django.utils.six.moves.http_client import responses
 
 __all__ = ('Response', 'ErrorResponse')
 
@@ -31,7 +31,7 @@ class Response(object):
         Return reason text corresponding to our HTTP response status code.
         Provided for convenience.
         """
-        return STATUS_CODE_TEXT.get(self.status, '')
+        return responses.get(self.status, '')
 
 
 class ErrorResponse(Exception):

@@ -10,6 +10,7 @@ import os
 import sys
 os.environ['DJANGO_SETTINGS_MODULE'] = 'djangorestframework.runtests.settings'
 
+import django
 from django.conf import settings
 from django.test.utils import get_runner
 
@@ -24,6 +25,7 @@ def usage():
 
 def main():
     TestRunner = get_runner(settings)
+    django.setup()
 
     test_runner = TestRunner()
     if len(sys.argv) == 2:

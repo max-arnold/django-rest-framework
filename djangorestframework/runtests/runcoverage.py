@@ -19,9 +19,11 @@ def main():
     cov.erase()
     cov.start()
 
+    import django
     from django.conf import settings
     from django.test.utils import get_runner
     TestRunner = get_runner(settings)
+    django.setup()
 
     if hasattr(TestRunner, 'func_name'):
         # Pre 1.2 test runners were just functions,

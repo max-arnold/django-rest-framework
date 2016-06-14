@@ -90,7 +90,7 @@ class TestModelCreation(TestModelsTestCase):
         mixin.CONTENT = cleaned_data
 
         response = mixin.post(request)
-        self.assertEquals(1, get_user_model.objects.count())
+        self.assertEquals(1, get_user_model().objects.count())
         self.assertEquals(1, response.cleaned_content.groups.count())
         self.assertEquals('foo', response.cleaned_content.groups.all()[0].name)
 

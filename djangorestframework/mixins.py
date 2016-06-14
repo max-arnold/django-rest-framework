@@ -572,15 +572,12 @@ class CreateModelMixin(ModelMixin):
         for fieldname in m2m_data:
             manager = getattr(instance, fieldname)
 
-            if hasattr(manager, 'add'):
-                manager.add(*m2m_data[fieldname][1])
-            else:
-                data = {}
-                data[manager.source_field_name] = instance
+            data = {}
+            data[manager.source_field_name] = instance
 
-                for related_item in m2m_data[fieldname][1]:
-                    data[m2m_data[fieldname][0]] = related_item
-                    manager.through(**data).save()
+            for related_item in m2m_data[fieldname][1]:
+                data[m2m_data[fieldname][0]] = related_item
+                manager.through(**data).save()
 
         headers = {}
         if hasattr(self.resource, 'url'):

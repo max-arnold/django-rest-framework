@@ -49,12 +49,12 @@ class BasicAuthTests(TestCase):
     def test_post_form_failing_basic_auth(self):
         """Ensure POSTing form over basic auth without correct credentials fails"""
         response = self.csrf_client.post('/', {'example': 'example'})
-        self.assertEqual(response.status_code, 403)
+        self.assertEqual(response.status_code, 401)
 
     def test_post_json_failing_basic_auth(self):
         """Ensure POSTing json over basic auth without correct credentials fails"""
         response = self.csrf_client.post('/', json.dumps({'example': 'example'}), 'application/json')
-        self.assertEqual(response.status_code, 403)
+        self.assertEqual(response.status_code, 401)
 
 
 class SessionAuthTests(TestCase):
@@ -78,7 +78,7 @@ class SessionAuthTests(TestCase):
         """
         self.csrf_client.login(username=self.username, password=self.password)
         response = self.csrf_client.post('/', {'example': 'example'})
-        self.assertEqual(response.status_code, 403)
+        self.assertEqual(response.status_code, 401)
 
     def test_post_form_session_auth_passing(self):
         """
@@ -101,4 +101,4 @@ class SessionAuthTests(TestCase):
         Ensure POSTing form over session authentication without logged in user fails.
         """
         response = self.csrf_client.post('/', {'example': 'example'})
-        self.assertEqual(response.status_code, 403)
+        self.assertEqual(response.status_code, 401)

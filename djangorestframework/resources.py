@@ -300,6 +300,7 @@ class ModelResource(FormResource):
             class OnTheFlyModelForm(forms.ModelForm):
                 class Meta:
                     model = self.model
+                    fields = '__all__'
                     #fields = tuple(self._model_fields_set)
 
             form = OnTheFlyModelForm

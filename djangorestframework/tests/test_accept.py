@@ -48,7 +48,7 @@ class UserAgentMungingTest(TestCase):
                            MSIE_7_USER_AGENT):
             req = self.req.get('/', HTTP_ACCEPT='*/*', HTTP_USER_AGENT=user_agent)
             resp = self.view(req)
-            self.assertEqual(resp['Content-Type'], 'text/html')
+            self.assertEqual(resp['Content-Type'], 'text/html; charset=utf-8')
 
     def test_dont_munge_msie_with_x_requested_with_header(self):
         """Send MSIE user agent strings, and an X-Requested-With header, and
@@ -58,7 +58,7 @@ class UserAgentMungingTest(TestCase):
                            MSIE_7_USER_AGENT):
             req = self.req.get('/', HTTP_ACCEPT='*/*', HTTP_USER_AGENT=user_agent, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
             resp = self.view(req)
-            self.assertEqual(resp['Content-Type'], 'application/json')
+            self.assertEqual(resp['Content-Type'], 'application/json; charset=utf-8')
 
     def test_dont_rewrite_msie_accept_header(self):
         """Turn off _IGNORE_IE_ACCEPT_HEADER, send MSIE user agent strings and ensure
@@ -70,7 +70,7 @@ class UserAgentMungingTest(TestCase):
                            MSIE_7_USER_AGENT):
             req = self.req.get('/', HTTP_ACCEPT='*/*', HTTP_USER_AGENT=user_agent)
             resp = view(req)
-            self.assertEqual(resp['Content-Type'], 'application/json')
+            self.assertEqual(resp['Content-Type'], 'application/json; charset=utf-8')
 
     def test_dont_munge_nice_browsers_accept_header(self):
         """Send Non-MSIE user agent strings and ensure that we get a JSON response,
@@ -82,5 +82,5 @@ class UserAgentMungingTest(TestCase):
                            OPERA_11_0_OPERA_USER_AGENT):
             req = self.req.get('/', HTTP_ACCEPT='*/*', HTTP_USER_AGENT=user_agent)
             resp = self.view(req)
-            self.assertEqual(resp['Content-Type'], 'application/json')
+            self.assertEqual(resp['Content-Type'], 'application/json; charset=utf-8')
 

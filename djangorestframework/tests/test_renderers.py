@@ -238,7 +238,7 @@ class JSONPRendererTests(TestCase):
         resp = self.client.get('/jsonp/jsonrenderer',
                                HTTP_ACCEPT='application/json-p')
         self.assertEquals(resp.status_code, 200)
-        self.assertEquals(resp['Content-Type'], 'application/json-p')
+        self.assertEquals(resp['Content-Type'], 'application/json-p; charset=utf-8')
         self.assertEquals(resp.content, 'callback(%s);' % _flat_repr)
 
     def test_without_callback_without_json_renderer(self):
@@ -248,7 +248,7 @@ class JSONPRendererTests(TestCase):
         resp = self.client.get('/jsonp/nojsonrenderer',
                                HTTP_ACCEPT='application/json-p')
         self.assertEquals(resp.status_code, 200)
-        self.assertEquals(resp['Content-Type'], 'application/json-p')
+        self.assertEquals(resp['Content-Type'], 'application/json-p; charset=utf-8')
         self.assertEquals(resp.content, 'callback(%s);' % _flat_repr)
 
     def test_with_callback(self):
@@ -259,7 +259,7 @@ class JSONPRendererTests(TestCase):
         resp = self.client.get('/jsonp/nojsonrenderer?callback=' + callback_func,
                                HTTP_ACCEPT='application/json-p')
         self.assertEquals(resp.status_code, 200)
-        self.assertEquals(resp['Content-Type'], 'application/json-p')
+        self.assertEquals(resp['Content-Type'], 'application/json-p; charset=utf-8')
         self.assertEquals(resp.content, '%s(%s);' % (callback_func, _flat_repr))
 
 

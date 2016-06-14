@@ -25,7 +25,7 @@ urlpatterns = patterns('',
 
 class BasicAuthTests(TestCase):
     """Basic authentication"""
-    urls = 'djangorestframework.tests.authentication'
+    urls = 'djangorestframework.tests.test_authentication'
 
     def setUp(self):
         self.csrf_client = Client(enforce_csrf_checks=True)
@@ -59,7 +59,7 @@ class BasicAuthTests(TestCase):
 
 class SessionAuthTests(TestCase):
     """User session authentication"""
-    urls = 'djangorestframework.tests.authentication'
+    urls = 'djangorestframework.tests.test_authentication'
 
     def setUp(self):
         self.csrf_client = Client(enforce_csrf_checks=True)

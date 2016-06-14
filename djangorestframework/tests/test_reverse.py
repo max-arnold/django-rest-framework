@@ -39,7 +39,7 @@ class ReverseTests(TestCase):
     """
     Tests for fully qualifed URLs when using `reverse`.
     """
-    urls = 'djangorestframework.tests.reverse'
+    urls = 'djangorestframework.tests.test_reverse'
 
     def test_reversed_urls_are_fully_qualified(self):
         response = self.client.get('/reverse')

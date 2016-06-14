@@ -30,7 +30,7 @@ urlpatterns = patterns('',
 class BreadcrumbTests(TestCase):
     """Tests the breadcrumb functionality used by the HTML renderer."""
 
-    urls = 'djangorestframework.tests.breadcrumbs'
+    urls = 'djangorestframework.tests.test_breadcrumbs'
 
     def test_root_breadcrumbs(self):
         url = '/'

@@ -26,7 +26,7 @@ class UserAgentMungingTest(TestCase):
     http://www.gethifi.com/blog/browser-rest-http-accept-headers
     """
 
-    urls = 'djangorestframework.tests.accept'
+    urls = 'djangorestframework.tests.test_accept'
 
     def setUp(self):
 

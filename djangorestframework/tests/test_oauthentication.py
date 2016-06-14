@@ -41,7 +41,7 @@ else:
         * if confirmed, the user is redirected to the third-party website through the callback view
         * the third-party website is able to retrieve data from the API
         """
-        urls = 'djangorestframework.tests.oauthentication'
+        urls = 'djangorestframework.tests.tests_oauthentication'
 
         def setUp(self):
             self.client = Client()

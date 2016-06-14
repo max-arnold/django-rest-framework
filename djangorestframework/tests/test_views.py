@@ -57,7 +57,7 @@ urlpatterns = patterns('',
 
 class BaseViewTests(TestCase):
     """Test the base view class of djangorestframework"""
-    urls = 'djangorestframework.tests.views'
+    urls = 'djangorestframework.tests.test_views'
 
     def test_view_call_final(self):
         response = self.client.options('/mock/final/')
@@ -119,7 +119,7 @@ class BaseViewTests(TestCase):
 
 class ExtraViewsTests(TestCase):
     """Test the extra views djangorestframework provides"""
-    urls = 'djangorestframework.tests.views'
+    urls = 'djangorestframework.tests.test_views'
 
     def test_login_view(self):
         """Ensure the login view exists"""

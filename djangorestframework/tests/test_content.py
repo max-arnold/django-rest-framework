@@ -200,7 +200,7 @@ class TestContentParsing(TestCase):
         self.assertEqual(view.DATA.items(), data.items())
 
 class TestContentParsingWithAuthentication(TestCase):
-    urls = 'djangorestframework.tests.content'
+    urls = 'djangorestframework.tests.test_content'
 
     def setUp(self):
         self.csrf_client = Client(enforce_csrf_checks=True)

@@ -8,7 +8,7 @@ from djangorestframework.mixins import CreateModelMixin, PaginatorMixin, ReadMod
 from djangorestframework.resources import ModelResource
 from djangorestframework.response import Response, ErrorResponse
 from djangorestframework.tests.models import CustomUser
-from djangorestframework.tests.testcases import TestModelsTestCase
+from djangorestframework.tests.test_testcases import TestModelsTestCase
 from djangorestframework.views import View
 import json
 

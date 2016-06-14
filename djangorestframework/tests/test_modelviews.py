@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 from djangorestframework.resources import ModelResource
 from djangorestframework.views import ListOrCreateModelView, InstanceModelView
 from djangorestframework.tests.models import CustomUser
-from djangorestframework.tests.testcases import TestModelsTestCase
+from djangorestframework.tests.test_testcases import TestModelsTestCase
 
 
 class GroupResource(ModelResource):
@@ -38,7 +38,7 @@ urlpatterns = patterns('',
 
 class ModelViewTests(TestModelsTestCase):
     """Test the model views djangorestframework provides"""
-    urls = 'djangorestframework.tests.modelviews'
+    urls = 'djangorestframework.tests.test_modelviews'
 
     def test_creation(self):
         """Ensure that a model object can be created"""

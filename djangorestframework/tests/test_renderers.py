@@ -82,7 +82,7 @@ class RendererIntegrationTests(TestCase):
     End-to-end testing of renderers using an RendererMixin on a generic view.
     """
 
-    urls = 'djangorestframework.tests.renderers'
+    urls = 'djangorestframework.tests.test_renderers'
 
     def test_default_renderer_serializes_content(self):
         """If the Accept header is not set the default renderer should serialize the response."""
@@ -229,7 +229,7 @@ class JSONPRendererTests(TestCase):
     Tests specific to the JSONP Renderer
     """
 
-    urls = 'djangorestframework.tests.renderers'
+    urls = 'djangorestframework.tests.test_renderers'
 
     def test_without_callback_with_json_renderer(self):
         """
@@ -397,7 +397,7 @@ class Issue122Tests(TestCase):
     """
     Tests that covers #122.
     """
-    urls = 'djangorestframework.tests.renderers'
+    urls = 'djangorestframework.tests.test_renderers'
 
     def test_only_html_renderer(self):
         """

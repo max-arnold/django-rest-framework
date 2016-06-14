@@ -31,7 +31,7 @@ class MockView_MinuteThrottling(MockView):
 
 
 class ThrottlingTests(TestCase):
-    urls = 'djangorestframework.tests.throttling'
+    urls = 'djangorestframework.tests.test_throttling'
 
     def setUp(self):
         """

@@ -193,8 +193,8 @@ class TemplateRenderer(BaseRenderer):
             return u''
 
         template = loader.get_template(self.template)
-        context = RequestContext(self.view.request, {'object': obj})
-        return template.render(context)
+        context = {'object': obj}
+        return template.render(context=context, request=self.view.request)
 
 
 class DocumentingTemplateRenderer(BaseRenderer):
@@ -343,7 +343,7 @@ class DocumentingTemplateRenderer(BaseRenderer):
         breadcrumb_list = get_breadcrumbs(self.view.request.path)
 
         template = loader.get_template(self.template)
-        context = RequestContext(self.view.request, {
+        context = {
             'content': content,
             'view': self.view,
             'request': self.view.request,
@@ -357,9 +357,9 @@ class DocumentingTemplateRenderer(BaseRenderer):
             'post_form': post_form_instance,
             'FORMAT_PARAM': self._FORMAT_QUERY_PARAM,
             'METHOD_PARAM': getattr(self.view, '_METHOD_PARAM', None),
-        })
+        }
 
-        ret = template.render(context)
+        ret = template.render(context=context, request=self.view.request)
 
         # Munge DELETE Response code to allow us to return content
         # (Do this *after* we've rendered the template so that we include

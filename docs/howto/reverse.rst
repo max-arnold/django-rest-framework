@@ -28,8 +28,8 @@ The `reverse` function has the same behavior as
 `django.core.urlresolvers.reverse`_, except that it optionally takes a request
 keyword argument, which it uses to return a fully qualified URL.
 
-    from djangorestframework.reverse import reverse
-    from djangorestframework.views import View
+    from olddjangorestframework.reverse import reverse
+    from olddjangorestframework.views import View
    
     class MyView(View):
         def get(self, request):

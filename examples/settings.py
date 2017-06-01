@@ -1,4 +1,4 @@
-# Settings for djangorestframework examples project
+# Settings for olddjangorestframework examples project
 import django
 import os
 
@@ -47,13 +47,13 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/"
-# NOTE: Some of the djangorestframework examples use MEDIA_ROOT to store content.
+# NOTE: Some of the olddjangorestframework examples use MEDIA_ROOT to store content.
 MEDIA_ROOT = os.path.join(os.getenv('EPIO_DATA_DIRECTORY', '.'), 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-# NOTE: None of the djangorestframework examples serve media content via MEDIA_URL.
+# NOTE: None of the olddjangorestframework examples serve media content via MEDIA_URL.
 MEDIA_URL = '/uploads/'
 
 STATIC_URL = '/static/'
@@ -98,7 +98,7 @@ INSTALLED_APPS = (
     staticfiles,
     'django.contrib.messages',
 
-    'djangorestframework',
+    'olddjangorestframework',
 
     'resourceexample',
     'modelresourceexample',

@@ -29,7 +29,7 @@ Resources
 
 **Project hosting:** `GitHub <https://github.com/tomchristie/django-rest-framework>`_.
 
-* The ``djangorestframework`` package is `available on PyPI <http://pypi.python.org/pypi/djangorestframework>`_.
+* The ``olddjangorestframework`` package is `available on PyPI <http://pypi.python.org/pypi/olddjangorestframework>`_.
 * We have an active `discussion group <http://groups.google.com/group/django-rest-framework>`_.
 * Bug reports are handled on the `issue tracker <https://github.com/tomchristie/django-rest-framework/issues>`_.
 * There's a comprehensive tutorial to using REST framework and Backbone JS on `10kblogger.wordpress.com <http://10kblogger.wordpress.com/2012/05/25/a-restful-password-locker-with-django-and-backbone-js/>`_.
@@ -51,7 +51,7 @@ Installation
 
 You can install Django REST framework using ``pip`` or ``easy_install``::
 
-    pip install djangorestframework
+    pip install olddjangorestframework
 
 Or get the latest development version using git::
 
@@ -62,13 +62,13 @@ Setup
 
 To add Django REST framework to a Django project:
 
-* Ensure that the ``djangorestframework`` directory is on your ``PYTHONPATH``.
-* Add ``djangorestframework`` to your ``INSTALLED_APPS``.
+* Ensure that the ``olddjangorestframework`` directory is on your ``PYTHONPATH``.
+* Add ``olddjangorestframework`` to your ``INSTALLED_APPS``.
 * Add the following to your URLconf.  (To include the REST framework Login/Logout views.)::
 
     urlpatterns = patterns('',
         ...
-        url(r'^api-auth/', include('djangorestframework.urls', namespace='djangorestframework'))
+        url(r'^api-auth/', include('olddjangorestframework.urls', namespace='olddjangorestframework'))
     )
 
 For more information on settings take a look at the :ref:`setup` section.
@@ -88,8 +88,8 @@ The following example exposes your `MyModel` model through an api. It will provi
 ``urls.py``::
 
     from django.conf.urls.defaults import patterns, url
-    from djangorestframework.resources import ModelResource
-    from djangorestframework.views import ListOrCreateModelView, InstanceModelView
+    from olddjangorestframework.resources import ModelResource
+    from olddjangorestframework.views import ListOrCreateModelView, InstanceModelView
     from myapp.models import MyModel
 
     class MyResource(ModelResource):

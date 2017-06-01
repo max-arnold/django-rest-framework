@@ -1,7 +1,7 @@
 """The root view for the examples provided with Django REST framework"""
 
-from djangorestframework.reverse import reverse
-from djangorestframework.views import View
+from olddjangorestframework.reverse import reverse
+from olddjangorestframework.views import View
 
 
 class Sandbox(View):
@@ -18,7 +18,7 @@ class Sandbox(View):
 
     1. A basic example using the [Resource](http://django-rest-framework.org/library/resource.html) class.
     2. A basic example using the [ModelResource](http://django-rest-framework.org/library/resource.html#resources.ModelResource) class.
-    3. An basic example using Django 1.3's [class based views](http://docs.djangoproject.com/en/dev/topics/class-based-views/) and djangorestframework's [RendererMixin](http://django-rest-framework.org/library/renderers.html).
+    3. An basic example using Django 1.3's [class based views](http://docs.djangoproject.com/en/dev/topics/class-based-views/) and olddjangorestframework's [RendererMixin](http://django-rest-framework.org/library/renderers.html).
     4. A generic object store API.
     5. A code highlighting API.
     6. A blog posts and comments API.

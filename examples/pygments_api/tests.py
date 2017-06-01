@@ -1,7 +1,7 @@
 from django.test import TestCase
 import json
 
-from djangorestframework.compat import RequestFactory
+from olddjangorestframework.compat import RequestFactory
 
 from pygments_api import views
 import tempfile, shutil

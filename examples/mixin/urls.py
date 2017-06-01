@@ -1,15 +1,15 @@
-from djangorestframework.compat import View  # Use Django 1.3's django.views.generic.View, or fall back to a clone of that if Django < 1.3
-from djangorestframework.mixins import ResponseMixin
-from djangorestframework.renderers import DEFAULT_RENDERERS
-from djangorestframework.response import Response
-from djangorestframework.reverse import reverse
+from olddjangorestframework.compat import View  # Use Django 1.3's django.views.generic.View, or fall back to a clone of that if Django < 1.3
+from olddjangorestframework.mixins import ResponseMixin
+from olddjangorestframework.renderers import DEFAULT_RENDERERS
+from olddjangorestframework.response import Response
+from olddjangorestframework.reverse import reverse
 
 from django.conf.urls.defaults import patterns, url
 
 
 class ExampleView(ResponseMixin, View):
     """An example view using Django 1.3's class based views.
-    Uses djangorestframework's RendererMixin to provide support for multiple
+    Uses olddjangorestframework's RendererMixin to provide support for multiple
     output formats."""
     renderers = DEFAULT_RENDERERS
 

@@ -14,7 +14,7 @@
 import sys, os
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(__file__)), 'djangorestframework')) # for documenting the library
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(__file__)), 'olddjangorestframework')) # for documenting the library
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(__file__)), 'examples')) # for importing settings
 import settings
 from django.core.management import setup_environ
@@ -56,9 +56,9 @@ copyright = u'2011, Tom Christie'
 #
 # The short X.Y version.
 
-import djangorestframework
+import olddjangorestframework
 
-version = djangorestframework.__version__
+version = olddjangorestframework.__version__
 
 # The full version, including alpha/beta/rc tags.
 release = version

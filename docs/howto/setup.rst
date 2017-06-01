@@ -12,11 +12,11 @@ contains ``'django.template.loaders.app_directories.Loader'``.
 This will already be the case by default.
 
 You may customize the templates by creating a new template called
-``djangorestframework/api.html`` in your project, which should extend
-``djangorestframework/base.html`` and override the appropriate
+``olddjangorestframework/api.html`` in your project, which should extend
+``olddjangorestframework/base.html`` and override the appropriate
 block tags. For example::
 
-    {% extends "djangorestframework/base.html" %}
+    {% extends "olddjangorestframework/base.html" %}
 
     {% block title %}My API{% endblock %}
 
@@ -33,7 +33,7 @@ If you're using Django 1.2 you'll need to use the seperate
 `django-staticfiles`_ package instead.
 
 You can override the styling by creating a file in your top-level static
-directory named ``djangorestframework/css/style.css``
+directory named ``olddjangorestframework/css/style.css``
 
 
 Markdown
@@ -62,7 +62,7 @@ Make sure you include the following in your `urlconf`::
 
     urlpatterns = patterns('',
         ...
-        url(r'^restframework', include('djangorestframework.urls', namespace='djangorestframework'))
+        url(r'^restframework', include('olddjangorestframework.urls', namespace='olddjangorestframework'))
     ) 
 
 .. _django.contrib.staticfiles: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/

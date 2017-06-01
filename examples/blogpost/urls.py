@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import patterns, url
-from djangorestframework.views import ListOrCreateModelView, InstanceModelView
+from olddjangorestframework.views import ListOrCreateModelView, InstanceModelView
 from blogpost.resources import BlogPostResource, CommentResource
 
 

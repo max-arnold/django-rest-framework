@@ -1,7 +1,7 @@
-from djangorestframework.reverse import reverse
-from djangorestframework.views import View
-from djangorestframework.response import Response
-from djangorestframework import status
+from olddjangorestframework.reverse import reverse
+from olddjangorestframework.views import View
+from olddjangorestframework.response import Response
+from olddjangorestframework import status
 
 from resourceexample.forms import MyForm
 

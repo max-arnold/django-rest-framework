@@ -1,12 +1,12 @@
 from __future__ import with_statement  # for python 2.5
 from django.conf import settings
 
-from djangorestframework.resources import FormResource
-from djangorestframework.response import Response
-from djangorestframework.renderers import BaseRenderer
-from djangorestframework.reverse import reverse
-from djangorestframework.views import View
-from djangorestframework import status
+from olddjangorestframework.resources import FormResource
+from olddjangorestframework.response import Response
+from olddjangorestframework.renderers import BaseRenderer
+from olddjangorestframework.reverse import reverse
+from olddjangorestframework.views import View
+from olddjangorestframework import status
 
 from pygments.formatters import HtmlFormatter
 from pygments.lexers import get_lexer_by_name

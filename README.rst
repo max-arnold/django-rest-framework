@@ -50,14 +50,14 @@ To install django-rest-framework in a virtualenv environment::
 
 To run the tests::
 
-    export PYTHONPATH=.    # Ensure djangorestframework is on the PYTHONPATH
-    python djangorestframework/runtests/runtests.py
+    export PYTHONPATH=.    # Ensure olddjangorestframework is on the PYTHONPATH
+    python olddjangorestframework/runtests/runtests.py
 
 
 To run the test coverage report::
 
-    export PYTHONPATH=.    # Ensure djangorestframework is on the PYTHONPATH
-    python djangorestframework/runtests/runcoverage.py
+    export PYTHONPATH=.    # Ensure olddjangorestframework is on the PYTHONPATH
+    python olddjangorestframework/runtests/runcoverage.py
 
 
 To run the examples::

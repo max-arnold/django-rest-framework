@@ -4,9 +4,9 @@
 from django.test import TestCase
 import json
 
-from djangorestframework.compat import RequestFactory
-from djangorestframework.reverse import reverse
-from djangorestframework.views import InstanceModelView, ListOrCreateModelView
+from olddjangorestframework.compat import RequestFactory
+from olddjangorestframework.reverse import reverse
+from olddjangorestframework.views import InstanceModelView, ListOrCreateModelView
 
 from blogpost import models, urls
 #import blogpost

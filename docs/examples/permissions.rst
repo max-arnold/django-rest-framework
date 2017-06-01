@@ -19,7 +19,7 @@ you specifically state that your view requires authentication.
 
 To do this you just need to import the `Isauthenticated` class from the frameworks' `permissions` module.::
 
-    from djangorestframework.permissions import IsAuthenticated
+    from olddjangorestframework.permissions import IsAuthenticated
 
 Then you enable authentication by setting the right 'permission requirement' to the `permissions` class attribute of your View like
 the example View below.:
@@ -43,7 +43,7 @@ a resource, then you can set a 'throttle' to achieve this.
 For this to work you'll need to import the `PerUserThrottling` class from the `permissions`
 module.::
 
-    from djangorestframework.permissions import PerUserThrottling
+    from olddjangorestframework.permissions import PerUserThrottling
 
 In the example below we have limited the amount of requests one 'client' or 'user' 
 may do on our view to 10 requests per minute.:

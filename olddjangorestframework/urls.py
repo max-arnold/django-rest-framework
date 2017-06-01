@@ -1,0 +1,9 @@
+from django.conf.urls import patterns, url
+
+
+template_name = {'template_name': 'olddjangorestframework/login.html'}
+
+urlpatterns = patterns('django.contrib.auth.views',
+    url(r'^login/$', 'login', template_name, name='login'),
+    url(r'^logout/$', 'logout', template_name, name='logout'),
+)

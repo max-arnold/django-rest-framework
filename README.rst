@@ -1,14 +1,9 @@
-Django REST framework
-=====================
+Obsolete version of Django REST framework 0.4
+=============================================
 
 **Django REST framework makes it easy to build well-connected, self-describing RESTful Web APIs.**
 
-**Author:** Tom Christie.  `Follow me on Twitter <https://twitter.com/_tomchristie>`_.
-
-:build status: |build-image|
-
-.. |build-image| image:: https://secure.travis-ci.org/tomchristie/django-rest-framework.png?branch=master
-                 :target: https://secure.travis-ci.org/tomchristie/django-rest-framework
+**Author:** Tom Christie.
 
 Overview
 ========
@@ -21,9 +16,9 @@ Features:
 * Stable, well tested code-base.
 * Active developer community.
 
-Full documentation for the project is available at http://django-rest-framework.org
+Full documentation for the project is available at http://upgrade-drf.com/docs/
 
-Issue tracking is on `GitHub <https://github.com/tomchristie/django-rest-framework/issues>`_.
+Issue tracking is on `GitHub <https://github.com/upgrade-drf/django-rest-framework-0.4/issues>`_.
 General questions should be taken to the `discussion group <http://groups.google.com/group/django-rest-framework>`_.
 
 Requirements:
@@ -37,7 +32,7 @@ Installation Notes
 
 To clone the project from GitHub using git::
 
-    git clone git@github.com:tomchristie/django-rest-framework.git
+    git clone git@github.com:upgrade-drf/django-rest-framework-0.4.git
 
 
 To install django-rest-framework in a virtualenv environment::

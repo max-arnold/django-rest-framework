@@ -3,20 +3,20 @@
    :keywords: django, python, REST, RESTful, API, interface, framework
 
 
-Django REST framework
-=====================
+Django REST framework 0.4
+=========================
 
 Introduction
 ------------
 
 Django REST framework is a lightweight REST framework for Django, that aims to make it easy to build well-connected, self-describing RESTful Web APIs.
 
-**Browse example APIs created with Django REST framework:** `The Sandbox <http://shielded-mountain-6732.herokuapp.com/>`_
+**Browse example APIs created with Django REST framework (NO LONGER EXISTS, 404):** `The Sandbox <http://shielded-mountain-6732.herokuapp.com/>`_
 
 Features:
 ---------
 
-* Automatically provides an awesome Django admin style `browse-able self-documenting API <http://shielded-mountain-6732.herokuapp.com>`_.
+* Automatically provides an awesome Django admin style `browse-able self-documenting API (NO LONGER EXISTS, 404) <http://shielded-mountain-6732.herokuapp.com>`_.
 * Clean, simple, views for Resources, using Django's new `class based views <http://docs.djangoproject.com/en/dev/topics/class-based-views/>`_.
 * Support for ModelResources with out-of-the-box default implementations and input validation.
 * Pluggable :mod:`.parsers`, :mod:`renderers`, :mod:`authentication` and :mod:`permissions` - Easy to customise.
@@ -27,11 +27,14 @@ Features:
 Resources
 ---------
 
-**Project hosting:** `GitHub <https://github.com/tomchristie/django-rest-framework>`_.
+**Obsolete version 0.4 is hosted on** `<https://github.com/upgrade-drf/django-rest-framework-0.4>`_.
 
-* The ``djangorestframework`` package is `available on PyPI <http://pypi.python.org/pypi/djangorestframework>`_.
+**Modern version is hosted on** `<https://github.com/encode/django-rest-framework>`_.
+
+* The ``djangorestframework`` package is `available on PyPI <https://pypi.python.org/pypi/djangorestframework/0.4.0>`_.
 * We have an active `discussion group <http://groups.google.com/group/django-rest-framework>`_.
-* Bug reports are handled on the `issue tracker <https://github.com/tomchristie/django-rest-framework/issues>`_.
+* Bug reports for version 0.4 are handled on `<https://github.com/upgrade-drf/django-rest-framework-0.4/issues>`_.
+* Bug reports for newer versions are handled on `<https://github.com/encode/django-rest-framework/issues>`_.
 * There's a comprehensive tutorial to using REST framework and Backbone JS on `10kblogger.wordpress.com <http://10kblogger.wordpress.com/2012/05/25/a-restful-password-locker-with-django-and-backbone-js/>`_.
 
 Any and all questions, thoughts, bug reports and contributions are *hugely appreciated*.
@@ -51,11 +54,11 @@ Installation
 
 You can install Django REST framework using ``pip`` or ``easy_install``::
 
-    pip install djangorestframework
+    pip install djangorestframework==0.4
 
 Or get the latest development version using git::
 
-    git clone git@github.com:tomchristie/django-rest-framework.git
+    git clone git@github.com:upgrade-drf/django-rest-framework-0.4.git
 
 Setup
 -----
@@ -80,7 +83,7 @@ Using Django REST framework can be as simple as adding a few lines to your urlco
 
 The following example exposes your `MyModel` model through an api. It will provide two views:
 
- * A view which lists your model instances and simultaniously allows creation of instances 
+ * A view which lists your model instances and simultaneously allows creation of instances
    from that view.
 
  * Another view which lets you view, update or delete  your model instances individually.
@@ -107,7 +110,7 @@ The following example exposes your `MyModel` model through an api. It will provi
 .. include:: examples.rst
 
 .. toctree::
-  :hidden: 
+  :hidden:
 
   contents
 
